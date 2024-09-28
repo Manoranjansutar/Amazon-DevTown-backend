@@ -191,15 +191,10 @@ const sortLowToHighController = async (req, res) => {
 }
 
 //search from product name,brand, category
-
 const searchController = async(req,res) =>{
     try {
-        const query = req.query.q ? req.query.q.trim() : '';
-    
-        if (query === '') {
-          return res.json([]);
-        }
-    
+        const query = req.params.keyword ? req.params.keyword.trim() : '';
+        console.log("query" , query)
         const searchResults = await productModel.find({
           $or: [
             { name: { $regex: new RegExp(query, 'i') } },  
@@ -213,8 +208,8 @@ const searchController = async(req,res) =>{
         console.error(err);
         res.status(500).json({ message: 'Server Error' });
       }
-    
-}
+    }
+
 
 
 
