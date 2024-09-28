@@ -12,6 +12,6 @@ productRouter.get('/search/brand/:brand' , searchBrandController)
 productRouter.get('/search/category/:category' , searchCategoryController)
 productRouter.get('/price/sort/high_to_low' , sortHighToLowController)
 productRouter.get('/price/sort/low_to_high' , sortLowToHighController)
-productRouter.get('/search' , searchController)
+productRouter.get('/search/:keyword' , searchController)
 
 export default productRouter;
